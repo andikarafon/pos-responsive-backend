@@ -25,3 +25,6 @@ Route::get('/products', [\App\Http\Controllers\Api\ProductController::class, 'in
 
 //orders
 Route::post('/orders', [\App\Http\Controllers\Api\OrderController::class, 'store'])->middleware('auth:sanctum');
+
+//get all orders
+Route::get('/orders', [\App\Http\Controllers\Api\OrderController::class, 'index'])->middleware('auth:sanctum');

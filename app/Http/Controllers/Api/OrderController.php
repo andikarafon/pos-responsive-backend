@@ -42,4 +42,14 @@ class OrderController extends Controller
             'data' => $order->load('orderItems.product'),
         ], 201);
     }
+
+
+    //get all data
+    public function index(Request $request)
+    {
+        $orders = \App\Models\Order::with('orderItems.product')->get();
+        return response()->json([
+            'data' => $orders,
+        ]);
+    }
 }
